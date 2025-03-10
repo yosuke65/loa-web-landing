@@ -1,15 +1,14 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@700&family=Open+Sans:wght@300;400;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
+  --background: #000;
   --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-inter: 'Inter' sans-serif;
+  --font-tiempos: 'Tiempos Fine', serif;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -19,8 +18,53 @@
   }
 }
 
+@font-face {
+  font-family: 'Tiempos fine';
+  src: url('/fonts/TiemposFine-Regular.otf') format('opentype'),
+       url('/fonts/TiemposFine-Semibold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Inter', Helvetica, sans-serif;
+}
+
+.arc {
+  background-image: url('/bg/glowingBg.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+@media screen and (min-width: 768px) {
+  .arc {
+    background-size: 100% 40%;
+    background-position: cover;
+  } 
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: 'Tiempos Fine', serif;
+  font-weight: 600;
+}
+
+.bullet {
+  list-style-type: none;
+  position: relative;
+}
+
+.bullet li::before {
+  list-style-type: none;
+  content: url('/icons/list.svg');
+  position: absolute;
+  width: 160%;
+  left: 0;
 }
