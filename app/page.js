@@ -2,16 +2,26 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import TypewriterHeader from "@/components/Heading";
 import Button from "@/components/Button";
 import HowItWorks from "@/components/HowItWorks";
 import OurStory from "@/components/OurStory";
 import Benefits from "@/components/Benefits";
 import Legacy from "@/components/Legacy";
+import Testimonial from "@/components/Testimonial";
+import Start from "@/components/Start";
+import Faqs from "@/components/Faqs";
 
 export default function Home() {
+  const { navigate } = useRouter();
+
   const handleWaitlist = () => {
     console.log('Join the Waitlist');
+  }
+
+  const learnMore = () => {
+    navigate('/about-us');
   }
 
   return (
@@ -20,19 +30,24 @@ export default function Home() {
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0, transition: { duration: 0.8 } }}
         viewport={{ once: true }}
-        className="pt-16 flex flex-col items-center justify-items-center arc"
+        className="pt-24 flex bg-primary flex-col items-center justify-items-center arc overflow-x-hidden"
       >
         <section className="w-full max-w-5xl mx-auto flex flex-col items-center justify-center gap-8">
-          <article className="relative p-4 flex flex-col items-center justify-center">
+          <article className="relative w-full p-4 mx-auto flex flex-col items-center justify-center">
             <TypewriterHeader text="AI-Powered Storytelling for Your Life" />
-            <p className="mt-56 text-white w-[80%] text-center">
+            <motion.p
+              initial={{ opacity: 0, scale: 1.25 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.8, duration: 0.5 }}
+              className="mt-48 lg:mt-64 text-white w-[80%] md:w-[60%] md:leading-8 text-center"
+            >
               Capture your experiences, reflect on your past, and discover your purpose - one story at a time, with the help of AI.
-            </p>
+            </motion.p>
 
             <div className="mt-8 flex space-x-4">
               <Button text="Join the Waitlist" click={handleWaitlist} />
               <div className="hidden md:flex">
-                <Button text="Learn More" click={handleWaitlist} />
+                <Button text="Learn More" click={learnMore} />
               </div>
             </div>
           </article>
@@ -49,6 +64,9 @@ export default function Home() {
       <OurStory />
       <Benefits />
       <Legacy />
+      <Testimonial />
+      <Start />
+      <Faqs />
     </>
   );
 }

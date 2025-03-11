@@ -23,6 +23,7 @@ module.exports = {
         'h2': 'clamp(2rem, 5vw, 4rem)',
         'h3': 'clamp(1.5rem, 4vw, 3rem)',
         'h4': 'clamp(1.25rem, 3vw, 2.5rem)',
+        'h5': 'clamp(1rem, 3vw, 2rem)',
         'body': 'clamp(15px, 3vw, 1rem)',
       },
       borderWidth: {

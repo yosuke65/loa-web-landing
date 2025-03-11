@@ -26,7 +26,7 @@ const Navbar = () => {
   }, []);
 
   const isActive = (pathname) => {
-    return router.pathname === pathname ? 'text-white' : 'hover:text-gray-300';
+    return router.pathname === pathname ? 'text-silver' : 'text-white hover:text-gray-300 transition-colors duration-300';
   };
 
   const toggleMenu = () => {
@@ -45,17 +45,21 @@ const Navbar = () => {
       initial="hidden"
       animate="visible"
     >
-      <article className="container p-4  md:mx-auto flex items-center justify-between">
+      <article className="container p-4 w-full md:mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center cursor-pointer font-ubuntu text-white md:text-xl font-bold">
           <Image src="/ever.svg" alt="Ever Journal" width={30} height={30} />
           Ever Journal
         </Link>
 
-        <ul className="hidden md:flex space-x-6">
+        <ul className="hidden md:flex space-x-12">
           <li><Link href="/features" className={isActive('/features')}>Features</Link></li>
           <li><Link href="/premium" className={isActive('/premium')}>Premium</Link></li>
           <li><Link href="/updates" className={isActive('/updates')}>What&apos;s New</Link></li>
         </ul>
+
+        <div className='hidden md:flex'>
+          <Button text="Join the Waitlist" onClick={() => alert('Waitlist clicked!')} />
+        </div>
 
         {/* Mobile Menu Button */}
         <article className="md:hidden flex items-center justify-between w-[50%]">
@@ -80,12 +84,12 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <motion.article
-        className={`md:hidden ${isOpen ? 'block min-h-[120vh] w-full bg-bg' : 'hidden'}`}
+        className={`md:hidden ${isOpen ? 'fixed inset-0 min-h-[100vh] top-[90px] transform translate-y-0 transition-transform duration-300 w-full bg-bg' : 'fixed inset- transform -translate-y-full transition-transform duration-300'}`}
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : -10 }}
         transition={{ duration: 0.3 }}
       >    
-        <ul className="flex flex-col items-center pt-20 space-y-14">
+        <ul className="flex text-secondary flex-col items-center pt-28 space-y-14">
           <li className="text-3xl"><Link href="/features" className={isActive('/features')}>Features</Link></li>
           <li className="text-3xl"><Link href="/premium" className={isActive('/premium')}>Premium</Link></li>
           <li className="text-3xl"><Link href="/updates" className={isActive('/updates')}>What&apos;s New</Link></li>

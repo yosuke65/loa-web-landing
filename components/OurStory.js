@@ -16,15 +16,15 @@ const OurStory = () => {
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 0.8 } }}
-      className="w-full text-secondary"
+      className="w-full text-secondary bg-primary"
     >
-      <article className="mx-auto py-14 p-4 px-5 max-w-5xl flex flex-col items-center justify-center gap-4">
-        <div className="flex flex-col items-center justify-center">
-          <h2 className="text-h2 font-bold text-center max-w-[80%]">How We Built Ever Journal</h2>
+      <article className="container mx-auto py-14 p-4 px-5 max-w-[1200px] lg:grid lg:grid-cols-2 items-center justify-center gap-4">
+        <div className="flex flex-col items-center lg:items-start justify-center">
+          <h2 className="text-h2 lg:text-h3 font-bold text-center lg:text-left max-w-[80%]">How We Built Ever Journal</h2>
           <span className="w-16 h-1 mt-3 bg-secondary" />
-          <Image src="/mockups/story.webp" alt="Ever Journal Mockup" className="w-full" width={500} height={400} />
+          <Image src="/mockups/story.webp" alt="Ever Journal Mockup" className="max-w-[80%]" width={500} height={400} />
         </div>
-        <div className="mt-4 grid grid-cols-1 md:grid-cols-2 gap-4 text-justify">
+        <div className="mt-4 grid grid-cols-1 gap-4 text-justify self-start">
           {story.map((paragraph, index) => (
             <motion.p
               key={index}

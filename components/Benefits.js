@@ -42,13 +42,13 @@ const Benefits = () => {
       animate={{ opacity: 1, transition: { duration: 0.8 } }}
       className="w-full bg-secondary text-primary"
     >
-      <article className="mx-auto py-14 p-4 px-5 max-w-5xl flex flex-col items-center justify-center gap-4">
+      <article className="container mx-auto py-14 p-4 px-5 max-w-[1200px] gap-4flex flex-col items-center justify-center gap-4">
         <div className="flex flex-col items-center justify-center">
-          <h2 className="text-h2 font-bold text-center max-w-[80%]">Features & Benefits</h2>
+          <h2 className="text-h2 lg:text-h3 font-bold text-center max-w-[80%]">Features & Benefits</h2>
           <span className="w-16 h-1 mt-3 bg-bg" />
           
           <article className="flex flex-col items-center justify-center mt-16">
-            <h3 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-6xl" style={{ lineHeight: 1.2 }}>
+            <h3 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-4xl lg:max-w-[60%] lg:text-center" style={{ lineHeight: 1.2 }}>
               Unlock the Power of AI-Driven
               <span className="relative whitespace-nowrap text-[#505050]"> 
                 <svg aria-hidden="true" viewBox="0 0 418 42" className="absolute top-2/3 left-0 h-[0.58em] w-full fill-pink-400/70 dark:fill-pink-300/60" preserveAspectRatio="none">
@@ -57,23 +57,23 @@ const Benefits = () => {
                 <span className="relative "> Storytelling</span>
               </span>!
             </h3>
-            <p className="mt-5 text-justify">
+            <p className="mt-5 text-justify md:max-w-[60%] md:text-center">
               Journaling doesn’t have to be a struggle, it just needs structure, guidance, and purpose. Now you can write, reflect, and preserve your legacy.
             </p>
           </article>
         </div>
-        <div className="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
+        <div className="mt-16 lg:mt-26 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
           {story.map((paragraph) => (
             <motion.article
               key={paragraph.id}
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
               viewport={{ once: true }}
-              className="mt-2 border drop-shadow-xl relative items-center flex flex-col gap-4 p-4 py-10 rounded-lg"
+              className="mt-2 border drop-shadow-xl lg:drop-shadow-none relative lg:items-start items-center flex flex-col gap-4 p-4 py-10 rounded-lg"
             >
-              <h3 className="text-h2 absolute top-[-40px] border-2 text-[#505050] left-[40%] bg-white rounded-full p-4 w-[70px] h-[70px] flex items-center justify-center font-bold">{paragraph.id}</h3>
-              <h4 className="text-h3 font-bold mt-5 text-center">{paragraph.title}</h4>
-              <p className="mt-2 text-center">{paragraph.desc}</p>
+              <h3 className="text-h3 absolute lg:static top-[-40px] border-2 lg:border-none text-[#505050] left-[40%] bg-white rounded-full p-4 w-[70px] h-[70px] flex items-center justify-center font-bold">{paragraph.id}</h3>
+              <h4 className="text-h5 font-bold mt-5 lg:mt-0 lg:text-left text-center">{paragraph.title}</h4>
+              <p className="mt-2 text-center lg:text-left">{paragraph.desc}</p>
             </motion.article>
           ))}
         </div>

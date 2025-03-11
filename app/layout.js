@@ -5,6 +5,7 @@ import Head from 'next/head';
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/navigation';
 import Navbar from '@/components/NavBar';
+import Footer from "@/components/Footer";
 
 const currentYear = new Date().getFullYear();
 
@@ -27,8 +28,8 @@ const Layout = ({ children }) => {
         <meta name="description" content="Ever Journal is more than just a journal app—it’s your personal biographer. With the help of Eve, your AI biographer, you’ll embark on a journey of self-reflection, rediscovery, and storytelling" />
       </Head>
 
-      <body className="bg-black text-white min-h-screen flex flex-col">
-        <header className="w-full max-w-5xl px-4 py-6 flex justify-between items-center mx-auto">
+      <body className="bg-secondary text-primary min-h-screen flex flex-col">
+        <header className="w-full max-w-5xl px-4 flex justify-between items-center mx-auto">
           <Navbar />
         </header>
 
@@ -43,9 +44,7 @@ const Layout = ({ children }) => {
           {children}
         </motion.main>
 
-        <footer className="w-full max-w-5xl mt-12 p-4 text-center text-blue-300 mx-auto">
-          {`© ${currentYear} Ever Journal. All rights reserved.`}
-        </footer>
+        <Footer />
       </body>
     </html>
   );
