@@ -4,12 +4,12 @@ import "../globals.css";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-// import { useRouter } from "next/navigation";
 import Button from "@/components/Button";
 import Testimonial from "@/components/Testimonial";
-import Start from "@/components/Start";
 import Faqs from "@/components/Faqs";
 import Feature from "@/components/Features";
+import Analysis from "@/components/Compare";
+import Ready from "@/components/Ready";
 
 export default function Features() {
 
@@ -61,7 +61,8 @@ export default function Features() {
         </section>
       </motion.article>
       <Feature />
-      <Start />
+      <Analysis />
+      <Ready />
       <Testimonial />
       <div className="relative top-[500px]">
           <Faqs />
