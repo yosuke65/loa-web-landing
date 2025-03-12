@@ -70,7 +70,7 @@ const HowItWorks = () => {
             >
               <ul className="mt-2 grid grid-cols-1 gap-4 bullet">
                 {how.map((step, index) => (
-                  <li key={index} className="flex items-center pl-8">
+                  <li key={index} className="flex items-center pl-12">
                     <span>{step}</span>
                   </li>
                 ))}

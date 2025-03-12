@@ -9,21 +9,7 @@ import Button from './Button';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const router = useRouter();
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 500);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
 
   const isActive = (pathname) => {
     return router.pathname === pathname ? 'text-silver' : 'text-white hover:text-gray-300 transition-colors duration-300';
@@ -40,13 +26,13 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className={`fixed top-0 left-0 w-full z-50 ${isScrolled ? 'bg-bg shadow-md' : 'bg-bg'} transition-colors duration-300`}
+      className="fixed top-0 left-0 w-full min-h-[80px] z-50 bg-bg transition-colors duration-300"
       variants={navbarVariants}
       initial="hidden"
       animate="visible"
     >
-      <article className="container p-4 w-full md:mx-auto flex items-center justify-between">
-        <Link href="/" className="flex items-center cursor-pointer font-ubuntu text-white md:text-xl font-bold">
+      <article className="container p-4 px-5 w-[100vw] mx-auto flex items-center justify-between">
+        <Link href="/" className="flex items-center cursor-pointer font-ubuntu text-white md:text-xl font-bold" onClick={() => setIsOpen(false)}>
           <Image src="/ever.svg" alt="Ever Journal" width={30} height={30} />
           Ever Journal
         </Link>
@@ -84,15 +70,15 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <motion.article
-        className={`md:hidden ${isOpen ? 'fixed inset-0 min-h-[100vh] top-[90px] transform translate-y-0 transition-transform duration-300 w-full bg-bg' : 'fixed inset- transform -translate-y-full transition-transform duration-300'}`}
+        className={`md:hidden ${isOpen ? 'fixed inset-0 min-h-[100vh] top-[80px] transform translate-y-0 transition-transform duration-300 w-full bg-bg' : 'fixed inset- transform -translate-y-full transition-transform duration-300'}`}
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : -10 }}
         transition={{ duration: 0.3 }}
       >    
         <ul className="flex text-secondary flex-col items-center pt-28 space-y-14">
-          <li className="text-3xl"><Link href="/features" className={isActive('/features')}>Features</Link></li>
-          <li className="text-3xl"><Link href="/premium" className={isActive('/premium')}>Premium</Link></li>
-          <li className="text-3xl"><Link href="/updates" className={isActive('/updates')}>What&apos;s New</Link></li>
+          <li className="text-3xl"><Link href="/features" className={isActive('/features')} onClick={toggleMenu}>Features</Link></li>
+          <li className="text-3xl"><Link href="/premium" className={isActive('/premium')} onClick={toggleMenu}>Premium</Link></li>
+          <li className="text-3xl"><Link href="/updates" className={isActive('/updates')} onClick={toggleMenu}>What&apos;s New</Link></li>
         </ul>
       </motion.article>
     </motion.nav>

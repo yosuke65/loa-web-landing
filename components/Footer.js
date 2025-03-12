@@ -1,12 +1,19 @@
+'use strict';
+
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
+  const [currentYear, setCurrentYear] = useState(null);
+
+  useEffect(() => {
+    setCurrentYear(new Date().getFullYear());
+  }, []);
 
   return (
     <footer className='bg-bg w-full relative top-[500px] footer'>
-      <div className='container mx-auto pt-10 p-5'>
+      <div className='container mx-auto pt-10 p-5 px-5'>
         <div className='flex gap-10 items-start max-lg:gap-6'>
           <section className='flex flex-col gap-3'>
             <Link href="/" className="flex items-center cursor-pointer font-ubuntu text-white md:text-xl font-bold">

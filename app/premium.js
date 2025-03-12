@@ -1,7 +1,6 @@
 "use client";
 
-import "./globals.css";
-import { useEffect } from "react";
+import "../app/globals.css";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
@@ -15,12 +14,8 @@ import Testimonial from "@/components/Testimonial";
 import Start from "@/components/Start";
 import Faqs from "@/components/Faqs";
 
-export default function Home() {
+export default function Premium() {
   const { navigate } = useRouter();
-
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
   const handleWaitlist = () => {
     console.log('Join the Waitlist');
@@ -45,7 +40,7 @@ export default function Home() {
               initial={{ opacity: 0, scale: 1.25 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.8, duration: 0.5 }}
-              className="mt-56 lg:mt-64 text-white w-[80%] md:w-[60%] md:leading-8 text-center"
+              className="mt-48 lg:mt-64 text-white w-[80%] md:w-[60%] md:leading-8 text-center"
             >
               Capture your experiences, reflect on your past, and discover your purpose - one story at a time, with the help of AI.
             </motion.p>
@@ -71,12 +66,8 @@ export default function Home() {
       <Benefits />
       <Legacy />
       <Testimonial />
-      <div className="relative top-[500px]">
-        <Start />
-      </div>
-      <div className="relative top-[500px]">
-        <Faqs />
-      </div>
+      <Start />
+      <Faqs />
     </>
   );
 }

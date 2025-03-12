@@ -32,22 +32,23 @@ body {
   color: var(--foreground);
   font-family: 'Inter', Helvetica, sans-serif;
   scroll-behavior: smooth;
+  font-size: 0.875rem;
 }
 
 .arc {
-  background-image: url('/bg/glowingBg.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: bottom;
+  background-image: url('/bg/glowingBg.png'), url('/bg/floatingBg.webp'), url('/bg/floatingBgR.webp');
+  background-size: contain, 60%, 70%;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: bottom, -30% -10%, 174% 50%;
 }
 
 @media screen and (min-width: 768px) {
   body {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
   .arc {
-    background-size: 100% 40%;
-    background-position: cover;
+    background-size: 100% 40%, 40%, 40%;
+    background-position: bottom, -10% 10%, 114% 50%;
   } 
 }
 
@@ -67,8 +68,13 @@ h5 {
 
 .bullet li::before {
   list-style-type: none;
-  content: url('/icons/list.svg');
+  content: '';
+  background-image: url('/icons/list.svg');
+  background-size: contain;
+  background-repeat: no-repeat;
   position: absolute;
+  width: 32px;
+  height: 32px;
   left: 0;
 }
 

@@ -8,7 +8,7 @@ const Start= () => {
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 0.8 } }}
-      className="w-full bg-primary relative top-[500px] text-secondary"
+      className="w-full bg-primary text-secondary"
     >
       <article className="container mx-auto py-14 p-4 px-5 max-w-[1200px] flex flex-col md:flex-row items-center justify-center gap-12">
         <div className="flex flex-col gap-12 items-center md:items-start justify-center">

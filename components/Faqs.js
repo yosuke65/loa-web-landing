@@ -1,8 +1,7 @@
-'use client'
 import { useState } from 'react';
 import { motion } from "framer-motion";
 import { MdKeyboardArrowDown, MdKeyboardArrowUp } from "react-icons/md";
-import faqsData from "./data/faqs.json";
+import faqs from "./data/faqs.js";
 
 const Faqs = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -15,7 +14,7 @@ const Faqs = () => {
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { duration: 0.8 } }}
-      className="w-full relative top-[500px] bg-secondary text-primary overflow-hidden"
+      className="w-full bg-secondary text-primary overflow-hidden"
     >
       <article className="container mx-auto py-14 p-4 px-5 max-w-5xl flex flex-col items-center justify-center gap-4">
         <div className="flex flex-col items-center justify-center">
@@ -23,16 +22,17 @@ const Faqs = () => {
           <span className="w-16 h-1 mt-3 bg-bg" />
         </div>
         <ul className="space-y-4 w-full">
-          {faqsData.questions.map((faq, index) => (
+          {faqs.map((faq, index) => (
             <motion.li
+              key={index}
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3, delay: 0.2 }}
               viewport={{ once: true }}
-              key={index}>
+            >
               <div className={`faq-item border-b-2 ${activeIndex === index ? 'py-6 px-4 bg-[#505050] text-[#fff] rounded-lg' : ''}`}>
                 <div className='flex justify-between items-start py-3'>
-                  <div className="faq-question cursor-pointer max-w-[90%]" onClick={() => toggleAnswer(index)}>
+                  <div className="faq-question cursor-pointer max-w-[90%]">
                     <span className="text-lg font-semibold">
                       {faq.question}
                     </span>
@@ -41,22 +41,22 @@ const Faqs = () => {
                     className="toggle-button"
                     onClick={() => toggleAnswer(index)}
                   >
-                    {activeIndex === index ? <MdKeyboardArrowUp className='w-8 h-8' /> : <MdKeyboardArrowDown className='w-8 h-8' />} 
+                    {activeIndex === index ? <MdKeyboardArrowUp className='w-8 h-8' /> : <MdKeyboardArrowDown className='w-8 h-8' />}
                   </button>
                 </div>
 
                 <div
-                  className={`faq-answer mt-2 transition-transform duration-1000 ease-in-out transform ${
+                   className={`faq-answer mt-2 transition-transform duration-1000 ease-in-out transform ${
                     activeIndex === index ? 'translate-x-0' : '-translate-x-full'
                   }`}
                 >
                   {activeIndex === index && (
                     <>
-                      <p>{faq.answer}</p>
-                      {faq.list && faq.list.trim() !== "" && (
+                      <p>{faq?.answer}</p>
+                      {faq?.list && (
                         <ul className="list-disc pl-6">
-                          {faq.list.split("\n").map((item, idx) => (
-                            <li key={idx}>{item.trim()}</li>
+                          {faq.list.map((item, idx) => (
+                            <li key={idx}>{item}</li>
                           ))}
                         </ul>
                       )}
@@ -68,9 +68,8 @@ const Faqs = () => {
           ))}
         </ul>
       </article>
-
     </motion.section>
-  )
-}
+  );
+};
 
 export default Faqs;
