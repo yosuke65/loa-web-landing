@@ -22,14 +22,6 @@ export default function Home() {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleWaitlist = () => {
-    console.log('Join the Waitlist');
-  }
-
-  const learnMore = () => {
-    navigate('/about-us');
-  }
-
   return (
     <>
       <motion.article
@@ -51,9 +43,9 @@ export default function Home() {
             </motion.p>
 
             <div className="mt-8 flex space-x-4">
-              <Button text="Join the Waitlist" click={handleWaitlist} />
+              <Button text="Join the Waitlist" />
               <div className="hidden md:flex">
-                <Button text="Learn More" click={learnMore} />
+                <Button text="Learn More" />
               </div>
             </div>
           </article>

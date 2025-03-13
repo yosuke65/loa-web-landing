@@ -48,7 +48,7 @@ export default function Features() {
               Ever Journal combines AI-powered technology with a user-friendly interface to make journaling effortless, insightful, and deeply personal.
             </motion.p>
 
-            <Button text="Join the Waitlist" click={handleWaitlist} />
+            <Button text="Join the Waitlist" />
           </article>
           <motion.article
             initial={{ opacity: 0 }}
@@ -65,7 +65,7 @@ export default function Features() {
       <Ready />
       <Testimonial />
       <div className="relative top-[500px] mb-[500px]">
-          <Faqs />
+        <Faqs />
       </div>
     </>
   );

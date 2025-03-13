@@ -44,10 +44,6 @@ export default function About() {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleWaitlist = () => {
-    console.log('Join the Waitlist');
-  }
-
   return (
     <>
       <motion.article
@@ -70,7 +66,7 @@ export default function About() {
             </motion.p>
 
             <div className="mt-8 flex space-x-4">
-              <Button text="Join the Waitlist" click={handleWaitlist} />
+              <Button text="Join the Waitlist" />
             </div>
           </article>
           <motion.article
@@ -85,7 +81,7 @@ export default function About() {
       </motion.article>
 
       <motion.article className="mt-[-100px] bg-secondary text-primary overflow-hidden">
-        <article className="container mx-auto py-14 p-4 px-5 md:px-[5%] 2xl:px-0 max-w-[1200px] flex flex-col items-center justify-center gap-12">
+        <article className="container mx-auto py-14 pb-32 p-4 px-5 md:px-[5%] 2xl:px-0 max-w-[1200px] flex flex-col items-center justify-center gap-12">
           <div className="flex flex-col items-center md:items-start md:self-start">
             <h2 className="text-h2 lg:text-h3 font-bold text-center">Our Mission</h2>
             <span className="w-16 h-1 mt-3 bg-bg" />

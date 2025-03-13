@@ -44,12 +44,12 @@ const Navbar = () => {
         </ul>
 
         <div className='hidden md:flex'>
-          <Button text="Join the Waitlist" onClick={() => alert('Waitlist clicked!')} />
+          <Button text="Join the Waitlist" />
         </div>
 
         {/* Mobile Menu Button */}
         <article className="md:hidden flex items-center justify-between w-[50%]">
-          <Button text="Join the Waitlist" onClick={() => alert('Waitlist clicked!')} />
+          <Button text="Join the Waitlist" />
           <motion.button
             onClick={toggleMenu}
             whileHover={{ scale: 1.1 }}

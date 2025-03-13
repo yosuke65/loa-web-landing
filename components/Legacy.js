@@ -1,6 +1,5 @@
 'use client'
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Button from "./Button";
 
 const Legacy = () => {
@@ -16,7 +15,7 @@ const Legacy = () => {
           <p className="my-6 text-center max-w-[80%] lg:max-w-[60%] lg:leading-8">
             Ever Journal makes capturing your life story both effortless and insightful.
           </p>
-          <Button text="Join the Waitlist" click={() => console.log('Join the Waitlist')} />
+          <Button text="Join the Waitlist" />
         </div>
       </article>
 

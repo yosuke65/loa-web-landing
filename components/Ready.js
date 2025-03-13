@@ -15,7 +15,7 @@ const Ready= () => {
           <p className="text-left max-w-[80%] leading-8">Start your journey today—your legacy begins with Ever Journal!</p>
         </div>
         <div className="self-start md:self-end">
-          <Button text="Start Now" click={() => console.log('Join the Waitlist')} />
+          <Button text="Start Now" />
         </div>
       </article>
 
