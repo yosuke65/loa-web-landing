@@ -62,7 +62,8 @@ export default function Home() {
             animate={{ opacity: 1, transition: { duration: 0.5 } }}
             className="flex items-center w-full justify-center"
           >
-            <Image src="/mockups/heroImgMob.webp" alt="Ever Journal Mockup" className="max-w-[90%]" width={500} height={200} />
+            <Image src="/mockups/heroImgMob.svg" alt="Ever Journal Mockup" className="max-w-[90%] md:hidden" width={500} height={200} />
+            <Image src="/mockups/heroImgDesk.svg" alt="Ever Journal Mockup" className="hidden w-full md:block" width={500} height={200} />
           </motion.article>
         </section>
       </motion.article>

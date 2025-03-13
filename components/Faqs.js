@@ -21,7 +21,7 @@ const Faqs = () => {
           <h2 className="text-h2 lg:text-h3 font-bold text-center max-w-[80%]">Frequently Asked Questions (FAQs)</h2>
           <span className="w-16 h-1 mt-3 bg-bg" />
         </div>
-        <ul className="space-y-4 w-full">
+        <ul className="space-y-4 mt-14 w-full">
           {faqs.map((faq, index) => (
             <motion.li
               key={index}

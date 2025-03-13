@@ -22,7 +22,7 @@ const OurStory = () => {
         <div className="flex flex-col items-center lg:items-start justify-center">
           <h2 className="text-h2 lg:text-h3 font-bold text-center lg:text-left max-w-[80%]">How We Built Ever Journal</h2>
           <span className="w-16 h-1 mt-3 bg-secondary" />
-          <Image src="/mockups/story.webp" alt="Ever Journal Mockup" className="max-w-[80%]" width={500} height={400} />
+          <Image src="/mockups/story.webp" alt="Ever Journal Mockup" className="max-w-[50%]" width={500} height={400} />
         </div>
         <div className="mt-4 grid grid-cols-1 gap-4 text-justify self-start">
           {story.map((paragraph, index) => (
