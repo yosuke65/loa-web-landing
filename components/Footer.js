@@ -13,7 +13,7 @@ const Footer = () => {
 
   return (
     <footer className='bg-bg w-full footer'>
-      <div className='mx-auto pt-10 p-5 px-5 md:px-[5%] 2xl:px-0'>
+      <div className='mx-auto pt-10 p-5 px-5 md:px-[5%]'>
         <div className='flex gap-10 items-start max-lg:gap-6'>
           <section className='flex flex-col gap-3'>
             <Link href="/" className="flex items-center cursor-pointer font-ubuntu text-white md:text-xl font-bold">

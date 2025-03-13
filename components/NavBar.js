@@ -31,7 +31,7 @@ const Navbar = () => {
       initial="hidden"
       animate="visible"
     >
-      <article className="container p-4 px-5 w-full mx-auto flex items-center justify-between">
+      <article className="p-4 px-5 md:px-[5%] w-full mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center cursor-pointer font-ubuntu text-white md:text-xl font-bold" onClick={() => setIsOpen(false)}>
           <Image src="/ever.svg" alt="Ever Journal" width={30} height={30} />
           Ever Journal
