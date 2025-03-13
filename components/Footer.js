@@ -12,7 +12,7 @@ const Footer = () => {
   }, []);
 
   return (
-    <footer className='bg-bg w-full relative top-[500px] footer'>
+    <footer className='bg-bg w-full footer'>
       <div className='container mx-auto pt-10 p-5 px-5'>
         <div className='flex gap-10 items-start max-lg:gap-6'>
           <section className='flex flex-col gap-3'>

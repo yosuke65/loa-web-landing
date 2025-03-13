@@ -64,7 +64,7 @@ export default function Features() {
       <Analysis />
       <Ready />
       <Testimonial />
-      <div className="relative top-[500px]">
+      <div className="relative top-[500px] mb-[500px]">
           <Faqs />
       </div>
     </>

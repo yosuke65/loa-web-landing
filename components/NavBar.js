@@ -26,12 +26,12 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 w-full min-h-[80px] z-50 bg-bg transition-colors duration-300"
+      className="fixed top-0 left-0 w-full min-h-[80px] z-50 bg-bg"
       variants={navbarVariants}
       initial="hidden"
       animate="visible"
     >
-      <article className="container p-4 px-5 w-[100vw] mx-auto flex items-center justify-between">
+      <article className="container p-4 px-5 w-full mx-auto flex items-center justify-between">
         <Link href="/" className="flex items-center cursor-pointer font-ubuntu text-white md:text-xl font-bold" onClick={() => setIsOpen(false)}>
           <Image src="/ever.svg" alt="Ever Journal" width={30} height={30} />
           Ever Journal

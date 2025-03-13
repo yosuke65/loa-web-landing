@@ -27,7 +27,7 @@ const Layout = ({ children }) => {
       </Head>
 
       <body className="bg-secondary text-primary min-h-screen flex flex-col">
-        <header className="w-full max-w-5xl px-4 flex justify-between items-center mx-auto">
+        <header className="w-full">
           <Navbar />
         </header>
 

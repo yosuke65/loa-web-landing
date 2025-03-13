@@ -138,7 +138,7 @@ export default function About() {
       <Values />
       <Legacy />
       <Testimonial />
-      <div className="relative top-[500px]">
+      <div className="relative top-[500px] mb-[500px]">	
         <Faqs />
       </div>
     </>
