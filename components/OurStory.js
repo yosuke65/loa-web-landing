@@ -18,7 +18,7 @@ const OurStory = () => {
       animate={{ opacity: 1, transition: { duration: 0.8 } }}
       className="w-full text-secondary bg-primary"
     >
-      <article className="container mx-auto py-14 p-4 px-5 max-w-[1200px] lg:grid lg:grid-cols-2 items-center justify-center gap-4">
+      <article className="container mx-auto py-14 p-4 px-5 md:px-[5%] 2xl:px-0 max-w-[1200px] lg:grid lg:grid-cols-2 items-center justify-center gap-4">
         <div className="flex flex-col items-center lg:items-start justify-center">
           <h2 className="text-h2 lg:text-h3 font-bold text-center lg:text-left max-w-[80%]">How We Built Ever Journal</h2>
           <span className="w-16 h-1 mt-3 bg-secondary" />

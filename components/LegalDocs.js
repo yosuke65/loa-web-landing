@@ -5,12 +5,16 @@ import PropTypes from 'prop-types';
 const LegalDocs = ({ mou }) => {
   return (
     <article className="flex flex-col self-start my-3">
-      <ol className="list-decimal list-inside flex flex-col gap-5">
+      <ol className="list-decimal list-inside flex flex-col gap-6">
         {mou.map((item) => (
           <li key={item.id}>
-            <h2 className="text-lg inline font-semibold">
-              {item.title}
-            </h2>
+            {
+              item.title && (
+                <h2 className="text-lg inline font-semibold">
+                  {item.title}
+                </h2>
+              )
+            }
             <p className="">{item.text}</p>
             {item.list && (
               <ul className="list-disc list-inside mt-3">

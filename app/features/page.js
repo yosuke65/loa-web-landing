@@ -29,8 +29,8 @@ export default function Features() {
         viewport={{ once: true }}
         className="pt-28 lg:pt-64 lg:pb-32 flex bg-primary flex-col items-center justify-items-center overflow-x-hidden"
       >
-        <section className="w-full container max-w-[1200px] mx-auto flex flex-col lg:flex-row-reverse items-center lg:items-start justify-center lg:gap-5 gap-8">
-          <article className="p-4 mx-auto lg:mx-0 lg:relative lg:left-[-100px] w-full flex flex-col gap-5 items-start justify-center">
+        <section className="w-full container px-5 md:px-[5%] 2xl:px-0 max-w-[1200px] mx-auto flex flex-col lg:flex-row-reverse items-center lg:items-start justify-center lg:gap-5 gap-8">
+          <article className="py-4 mx-auto lg:mx-0 lg:relative lg:left-[-100px] w-full flex flex-col gap-5 items-start justify-center">
             <motion.h1
               initial={{ opacity: 0, x: 100 }}
               animate={{ opacity: 1, x: 0 }}
@@ -53,7 +53,7 @@ export default function Features() {
           <motion.article
             initial={{ opacity: 0 }}
             animate={{ opacity: 1, transition: { duration: 0.5 } }}
-            className="flex p-4 mx-auto items-center w-full justify-center"
+            className="flex py-4 mx-auto items-center w-full justify-center"
           >
             <Image src="/features/featuresMob.svg" alt="Ever Journal Mockup" className="max-w-[100%] mt-[-80px] md:hidden" width={500} height={200} />
             <Image src="/features/features.svg" alt="Ever Journal Mockup" className="w-full hidden mt-[-80px] md:block" width={200} height={400} />

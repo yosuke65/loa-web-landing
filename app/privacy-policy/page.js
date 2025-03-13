@@ -16,7 +16,7 @@ const Privacy = () => {
       animate={{ opacity: 1, x: 0 }}
       exit={{ opacity: 0, x: '100%' }}
       transition={{ delay: 0.5 }}
-      className="mx-auto px-4 py-20 pt-36 container max-w-[1200px] min-h-screen flex items-center flex-col justify-center"
+      className="mx-auto px-5 md:px-[5%] 2xl:px-0 py-20 pt-36 container max-w-[1200px] min-h-screen flex items-center flex-col justify-center"
     >
       <h2 className="text-h2 lg:text-h3 font-black text-center mb-14">Privacy Policy</h2>
       <p className="text-center py-5">Effective Date: July 20, 2024</p>

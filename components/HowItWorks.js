@@ -17,7 +17,7 @@ const HowItWorks = () => {
       animate={{ opacity: 1, transition: { duration: 0.8 } }}
       className="w-full mt-[-100px] bg-secondary text-primary overflow-hidden"
     >
-      <div className="container mx-auto py-14 p-4 px-5 max-w-[1200px] lg:grid lg:grid-cols-2 flex flex-col items-center justify-center gap-4">
+      <div className="container mx-auto py-14 p-4 px-5 md:px-[5%] 2xl:px-0 max-w-[1200px] lg:grid lg:grid-cols-2 flex flex-col items-center justify-center gap-4">
         <article className="">
           <div className="flex flex-col items-center lg:items-start justify-center">
             <h2 className="text-h2 lg:text-h3 font-bold text-center">How It Works</h2>

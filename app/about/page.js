@@ -56,8 +56,8 @@ export default function About() {
         viewport={{ once: true }}
         className="pt-24 flex bg-primary min-h-[100vh] flex-col items-center justify-items-center arc overflow-x-hidden"
       >
-        <section className="w-full max-w-5xl mx-auto flex flex-col items-center justify-center gap-8">
-          <article className="relative w-full p-4 mx-auto flex flex-col items-center justify-center">
+        <section className="w-full px-5 md:px-[5%] 2xl:px-0 max-w-5xl mx-auto flex flex-col items-center justify-center gap-8">
+          <article className="relative w-full py-4 mx-auto flex flex-col items-center justify-center">
             <TypewriterHeader text="Helping You Capture and Preserve Your Legacy" />
             <motion.p
               initial={{ opacity: 0, scale: 1.25 }}
@@ -85,7 +85,7 @@ export default function About() {
       </motion.article>
 
       <motion.article className="mt-[-100px] bg-secondary text-primary overflow-hidden">
-        <article className="container mx-auto py-14 p-4 px-5 max-w-[1200px] flex flex-col items-center justify-center gap-12">
+        <article className="container mx-auto py-14 p-4 px-5 md:px-[5%] 2xl:px-0 max-w-[1200px] flex flex-col items-center justify-center gap-12">
           <div className="flex flex-col items-center md:items-start md:self-start">
             <h2 className="text-h2 lg:text-h3 font-bold text-center">Our Mission</h2>
             <span className="w-16 h-1 mt-3 bg-bg" />
