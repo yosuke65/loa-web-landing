@@ -54,20 +54,25 @@ export default function About() {
       >
         <section className="w-full px-5 md:px-[5%] 2xl:px-0 max-w-5xl mx-auto flex flex-col items-center justify-center gap-8">
           <article className="relative w-full py-4 mx-auto flex flex-col items-center justify-center">
-            <TypewriterHeader text="Helping You Capture and Preserve Your Legacy" />
+            <motion.h1
+              initial={{ opacity: 0, x: 100 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.5, duration: 0.5 }}
+              className="text-white text-h2 md:max-w-[70%] lg:mt-12 font-bold text-center"
+            >
+              Helping You Capture and Preserve Your Legacy
+            </motion.h1>
             <motion.p
               initial={{ opacity: 0, scale: 1.25 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.8, duration: 0.5 }}
-              className="mt-64 text-white w-[80%] md:w-[60%] md:leading-8 text-center"
+              className="my-4 mb-6 text-white w-[80%] md:w-[60%] md:leading-8 text-center"
             >
               We believe that every life is a story worth telling. Ever Journal was born from a passion
               to make journaling effortless, insightful, and accessible to everyone.
             </motion.p>
 
-            <div className="mt-8 flex space-x-4">
-              <Button text="Join the Waitlist" />
-            </div>
+            <Button text="Join the Waitlist" />
           </article>
           <motion.article
             initial={{ opacity: 0 }}
