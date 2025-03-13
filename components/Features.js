@@ -44,7 +44,6 @@ const features = [
       'AI-generated event-based summaries (like Spotify Wrapped, but for your life)—e.g., "Japan Trip 2025" or "School Graduation".',
     ],
   },
-  ,
   {
     id: '07',
     title: 'Full Customization & Personalization',

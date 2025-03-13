@@ -46,7 +46,7 @@ const Benefits = () => {
         <div className="flex flex-col items-center justify-center">
           <h2 className="text-h2 lg:text-h3 font-bold text-center max-w-[80%]">Features & Benefits</h2>
           <span className="w-16 h-1 mt-3 bg-bg" />
-          
+
           <article className="flex flex-col items-center justify-center mt-16">
             <h3 className="mb-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-4xl lg:max-w-[60%] lg:text-center" style={{ lineHeight: 1.2 }}>
               Unlock the Power of AI-Driven
@@ -58,7 +58,8 @@ const Benefits = () => {
               </span>!
             </h3>
             <p className="mt-5 text-justify md:max-w-[60%] md:text-center">
-              Journaling doesn’t have to be a struggle, it just needs structure, guidance, and purpose. Now you can write, reflect, and preserve your legacy.
+              Journaling doesn’t have to be a struggle, it just needs structure, guidance,
+              and purpose. Now you can write, reflect, and preserve your legacy.
             </p>
           </article>
         </div>
@@ -69,7 +70,7 @@ const Benefits = () => {
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
               viewport={{ once: true }}
-              className="mt-2 border drop-shadow-xl lg:drop-shadow-none relative lg:items-start items-center flex flex-col gap-4 p-4 py-10 rounded-lg"
+              className="mt-2 border drop-shadow-xl lg:drop-shadow-none relative lg:items-start items-center flex flex-col gap-4 p-4 lg:p-10 py-10 rounded-lg"
             >
               <h3 className="text-h3 absolute lg:static top-[-40px] border-2 lg:border-none text-[#505050] left-[40%] bg-white rounded-full p-4 w-[70px] h-[70px] flex items-center justify-center font-bold">{paragraph.id}</h3>
               <h4 className="text-h5 font-bold mt-5 lg:mt-0 lg:text-left text-center">{paragraph.title}</h4>
