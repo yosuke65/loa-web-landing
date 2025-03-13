@@ -75,7 +75,7 @@ export default function Home() {
       <div className="relative top-[500px]">
         <Start />
       </div>
-      <div className="relative top-[500px]">
+      <div className="relative top-[500px] mb-[500px]">
         <Faqs />
       </div>
     </>
