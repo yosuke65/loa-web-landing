@@ -5,8 +5,9 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { MdCancel } from 'react-icons/md';
 import { useFormik } from 'formik';
 import { InfinitySpin } from 'react-loader-spinner';
-import { useForm } from '@formspree/react';
+// import { useForm } from '@formspree/react';
 import * as Yup from 'yup';
+import Success from '@/components/Success';
 
 const errorVariants = {
   hidden: { opacity: 0, y: -10 },
@@ -14,8 +15,9 @@ const errorVariants = {
   exit: { opacity: 0, y: -10, transition: { duration: 0.3 } },
 };
 
-function LeadForm({ onSuccess, handleClose }) {
+function LeadForm({ handleClose }) {
   const [isLoading, setIsLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const validationSchema = Yup.object({
     email: Yup.string().email('Invalid email address').required('Kindly enter a valid email address'),
@@ -30,7 +32,7 @@ function LeadForm({ onSuccess, handleClose }) {
       try {
         setIsLoading(true);
         await new Promise(resolve => setTimeout(resolve, 1000));
-        console.log('Submitting data:', { firstName, email });
+        console.log('Submitting data:', { email: values.email });
   
         // **Replace this with your actual lead submission logic (e.g., API call)**
         // Example using fetch:
@@ -42,14 +44,10 @@ function LeadForm({ onSuccess, handleClose }) {
         // if (!response.ok) {
         //   throw new Error('Failed to submit lead');
         // }
-  
-        if (onSuccess) {
-          onSuccess();
-        }
+        setSuccess(true);
         setIsLoading(false);
 
         formik.resetForm();
-        handleClose();
       } catch (err) {
         console.log('Form submission error:', err);
         setIsLoading(false);
@@ -94,7 +92,7 @@ function LeadForm({ onSuccess, handleClose }) {
 
       <form onSubmit={formik.handleSubmit} onClick={(e) => e.stopPropagation()} className="relative flex flex-col items-center py-14 gap-4 bg-primary text-white w-[90%] max-w-[500px] p-6 rounded-lg">
         <h2 className="text-xl font-semibold">Join Our Waitlist</h2>
-        <p className="text-sm text-center md:max-w-[85%] text-silver mb-2">Enter your valid email to get a special discount when we go live!</p>
+        <p className="text-sm text-center md:max-w-[85%] lg:max-w-[60%] text-silver mb-2">Enter your valid email to get a special discount when we go live!</p>
         <input
           type="email"
           name="email"
@@ -113,7 +111,7 @@ function LeadForm({ onSuccess, handleClose }) {
               animate="visible"
               exit="exit"
               transition={{ duration: 0.3 }}
-              className="absolute text-sm top-[63%] text-silver"
+              className="absolute text-sm left-5 top-[63%] text-silver"
             >
               <span className='text-red-500'>* </span>{formik.errors.email}
             </motion.div>
@@ -126,9 +124,12 @@ function LeadForm({ onSuccess, handleClose }) {
           }`}
           disabled={isLoading}
         >
-          {isLoading ? 'Submitting...' : 'Join the Waitlist'}
+          Join the Waitlist
         </button>
       </form>
+      {success && (
+        <Success closeForm={handleClose} />
+      )}
     </motion.div>
   );
 }
