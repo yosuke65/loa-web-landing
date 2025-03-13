@@ -10,8 +10,9 @@ import Faqs from "@/components/Faqs";
 import Feature from "@/components/Features";
 import Analysis from "@/components/Compare";
 import Ready from "@/components/Ready";
+import Benefits from "@/components/Benefits";
 
-export default function Features() {
+export default function Updates() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -33,7 +34,7 @@ export default function Features() {
               transition={{ delay: 0.5, duration: 0.5 }}
               className="text-white text-h2 md:max-w-[70%] lg:max-w-[100%] lg:text-h4 font-bold text-left"
             >
-              Explore the Features That Bring Your Life Story to Life
+              Constant Updates to Keep Your Journaling Experience Fresh
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, scale: 1.25 }}
@@ -56,13 +57,9 @@ export default function Features() {
           </motion.article>
         </section>
       </motion.article>
-      <Feature />
+      <Benefits />
       <Analysis />
       <Ready />
-      <Testimonial />
-      <div className="relative top-[500px] mb-[500px]">
-        <Faqs />
-      </div>
     </>
   );
 }
