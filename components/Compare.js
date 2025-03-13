@@ -149,34 +149,34 @@ const Analysis = () => {
           <div className="hidden lg:block">
             <table className="w-full rounded-lg text-sm text-left">
               <thead className="text-xs uppercase bg-[#505050]">
-                <tr  className="text-center">
-                  <th className="py-2 px-3">Feature</th>
-                  <th className="py-2 px-3">Ever Journal</th>
-                  <th className="py-2 px-3">Day One</th>
-                  <th className="py-2 px-3">Notion</th>
-                  <th className="py-2 px-3">ChatGPT & AI Writers</th>
-                  <th className="py-2 px-3">Memoir Services</th>
+                <tr  className="">
+                  <th className="py-5 px-3">Feature</th>
+                  <th className="py-5 px-3">Ever Journal</th>
+                  <th className="py-5 px-3">Day One</th>
+                  <th className="py-5 px-3">Notion</th>
+                  <th className="py-5 px-3">ChatGPT & AI Writers</th>
+                  <th className="py-5 px-3">Memoir Services</th>
                 </tr>
               </thead>
               <tbody>
                 {featuresData.map((featureItem, index) => (
-                  <tr key={index} className="bg-white text-primary border-b text-center border-gray-700">
+                  <tr key={index} className="bg-white text-primary border-b border-gray-700">
                     <th scope="row" className="py-4 p-5 font-medium text-left text-primary whitespace-nowrap">
                       {featureItem.feature}
                     </th>
-                    <td className="py-2 px-3">
+                    <td className="py-5 px-3">
                       {featureItem.everJournal === 'Yes' ? "✅ Yes" : "❌ No"}
                     </td>
-                    <td className="py-2 px-3">
+                    <td className="py-5 px-3">
                       {featureItem.dayOne === 'Yes' ? "✅ Yes" : featureItem.dayOne === 'No' ? "❌ No" : "⚠️ Partial"}
                     </td>
-                    <td className="py-2 px-3">
+                    <td className="py-5 px-3">
                       {featureItem.notion === 'Yes' ? "✅ Yes" : featureItem.notion === 'No' ? "❌ No" :  + "⚠️ Partial"}
                     </td>
-                    <td className="py-2 px-3">
+                    <td className="py-5 px-3">
                       {featureItem.chatGPT === 'Yes' ? "✅ Yes" : featureItem.chatGPT === 'No' ? "❌ No" : "⚠️ Partial"}
                     </td>
-                    <td className="py-2 px-3">
+                    <td className="py-5 px-3">
                       {featureItem.memoirServices === 'Yes' ? "✅ Yes" : featureItem.memoirServices === 'No' ? "❌ No" : "⚠️ Partial"}
                     </td>
                   </tr>
