@@ -11,6 +11,7 @@ module.exports = {
         tiempos: ['TiemposFine-Regular', 'serif'],
         tiemposBold: ['TiemposFine-Semibold', 'serif'],
         ubuntu: ['Ubuntu', 'sans-serif'],
+        inter: ['Inter', 'sans-serif'],
       },
       colors: {
         bg: '#121212',

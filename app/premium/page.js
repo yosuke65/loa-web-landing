@@ -10,6 +10,8 @@ import Faqs from "@/components/Faqs";
 import Feature from "@/components/Features";
 import Analysis from "@/components/Compare";
 import Ready from "@/components/Ready";
+import PricingPlans from "@/components/PricingPolicy";
+import Benefits from "@/components/Benefits";
 
 export default function Premium() {
 
@@ -56,7 +58,7 @@ export default function Premium() {
           </motion.article>
         </section>
       </motion.article>
-      <Feature />
+      <PricingPlans />
       <Analysis />
       <Ready />
       <Testimonial />
