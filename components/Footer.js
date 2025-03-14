@@ -39,7 +39,7 @@ const Footer = () => {
               <Link href="/updates" className='cursor-pointer transition-all hover:text-silver'>
                 What&apos;s New
               </Link>
-              <Link href="/contact" className='cursor-pointer transition-all hover:text-silver'>
+              <Link href="/contact-us" className='cursor-pointer transition-all hover:text-silver'>
                 Contact Us
               </Link>
             </div>

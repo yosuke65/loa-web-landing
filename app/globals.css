@@ -104,3 +104,47 @@ h5 {
     background-position: center right;
   }
 }
+
+.react-international-phone-input-container {
+  display: flex;
+  position: relative;
+  height: 41px !important;
+  border-radius: 0.25rem !important;
+}
+
+.react-international-phone-country-selector-button__button-content {
+  display: flex;
+  height: 41px !important;
+  border-radius: 0.25rem !important;
+}
+
+.react-international-phone-country-selector-button__button {
+  border-radius: 0 !important;
+}
+
+.react-international-phone-input,
+.react-international-phone-input-container .react-international-phone-input {
+  height: 41px !important;
+  width: 100%;
+  border-radius: 0 !important;
+}
+
+.react-international-phone-country-selector,
+.react-international-phone-country-selector-button {
+  height: 41px !important;
+  border-radius: 0 !important;
+}
+
+.react-international-phone-input:focus {
+  outline: 1px solid var(--light) !important;
+}
+
+.css-1im77uy-control {
+  height: 41px !important;
+}
+
+@media screen and (min-width: 768px) {
+  .css-1im77uy-control {
+    font-size: 1rem;
+  }
+}
