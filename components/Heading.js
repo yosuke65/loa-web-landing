@@ -17,11 +17,7 @@ const TypewriterHeader = ({ text }) => {
         setIndex((prevIndex) => prevIndex + 1);
       } else {
         setIsTyping(false);
-        setTimeout(() => {
-          setDisplayText('');
-          setIndex(0);
-          setIsTyping(true);
-        }, 1500);
+        clearInterval(intervalId);
       }
     }, 100);
 

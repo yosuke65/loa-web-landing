@@ -1,5 +1,8 @@
 'use client'
 import { motion } from "framer-motion";
+import { GiCheckMark } from "react-icons/gi";
+import { MdClose } from "react-icons/md";
+import { CgDanger } from 'react-icons/cg';
 
 const featuresData = [
   {
@@ -16,7 +19,7 @@ const featuresData = [
     dayOne: 'No',
     notion: 'No',
     chatGPT: 'No',
-    memoirServices: 'Yes (Manual & Expensive)',
+    memoirServices: 'Yes',
   },
   {
     feature: 'Structured Chapter Creation',
@@ -40,7 +43,7 @@ const featuresData = [
     dayOne: 'Yes',
     notion: 'No',
     chatGPT: 'No',
-    memoirServices: 'Yes (limited)',
+    memoirServices: 'Yes',
   },
   {
     feature: 'User-Generated Biography Sales',
@@ -56,7 +59,7 @@ const featuresData = [
     dayOne: 'No',
     notion: 'No',
     chatGPT: 'No',
-    memoirServices: 'Yes (Manual)',
+    memoirServices: 'Yes',
   },
   {
     feature: 'Export as Print / Digital Legacy',
@@ -105,40 +108,54 @@ const Analysis = () => {
                       <th scope="row" className="py-2 px-3 font-medium text-primary whitespace-nowrap">
                         Ever Journal
                       </th>
-                      <td className="py-2 px-3">
-                        {featureItem.everJournal === 'Yes' ? "✅ Yes" : "❌ No"}
+                      <td className="py-2 px-3 flex gap-2 items-center">
+                        {featureItem.everJournal === 'Yes' && <GiCheckMark />}
+                        {featureItem.everJournal === 'No' && <MdClose />}
+                        {featureItem.everJournal === 'Yes' ? "Yes" : "No"}
                       </td>
                     </tr>
                     <tr className="bg-white border-b border-gray-700">
                       <th scope="row" className="py-2 px-3 font-medium text-primary whitespace-nowrap">
                         Day One
                       </th>
-                      <td className="py-2 px-3">
-                        {featureItem.dayOne === 'Yes' ? "✅ Yes" : featureItem.dayOne === 'No' ? "❌ No" : "⚠️ Partial"}
+                      <td className="py-2 px-3 flex gap-2 items-center">
+                        {featureItem.dayOne === 'Yes' && <GiCheckMark />}
+                        {featureItem.dayOne === 'No' && <MdClose />}
+                        {featureItem.dayOne === 'Partial' && <CgDanger />}
+                        {featureItem.dayOne === 'Yes' ? "Yes" : featureItem.dayOne === 'No' ? "No" : "Partial"}
                       </td>
                     </tr>
                     <tr className="bg-white border-b border-gray-700">
                       <th scope="row" className="py-2 px-3 font-medium text-primary whitespace-nowrap">
                         Notion
                       </th>
-                      <td className="py-2 px-3">
-                        {featureItem.notion === 'Yes' ? "✅ Yes" : featureItem.notion === 'No' ? "❌ No" :  + "⚠️ Partial"}
+                      <td className="py-2 px-3 flex gap-2 items-center">
+                        {featureItem.notion === 'Yes' && <GiCheckMark />}
+                        {featureItem.notion === 'No' && <MdClose />}
+                        {featureItem.notion === 'Partial' && <CgDanger />}
+                        {featureItem.notion === 'Yes' ? "Yes" : featureItem.notion === 'No' ? "No" :   "Partial"}
                       </td>
                     </tr>
                     <tr className="bg-white border-b border-gray-700">
                       <th scope="row" className="py-2 px-3 font-medium text-primary whitespace-nowrap">
                         ChatGPT & AI Writers
                       </th>
-                      <td className="py-2 px-3">
-                        {featureItem.chatGPT === 'Yes' ? "✅ Yes" : featureItem.chatGPT === 'No' ? "❌ No" : "⚠️ Partial"}
+                      <td className="py-2 px-3 flex gap-2 items-center">
+                        {featureItem.chatGPT === 'Yes' && <GiCheckMark />}
+                        {featureItem.chatGPT === 'No' && <MdClose />}
+                        {featureItem.chatGPT === 'Partial' && <CgDanger />}
+                        {featureItem.chatGPT === 'Yes' ? "Yes" : featureItem.chatGPT === 'No' ? "No" : "Partial"}
                       </td>
                     </tr>
                     <tr className="bg-white">
                       <th scope="row" className="py-2 px-3 font-medium text-primary whitespace-nowrap">
                         Memoir Services
                       </th>
-                      <td className="py-2 px-3">
-                        {featureItem.memoirServices === 'Yes' ? "✅ Yes" : featureItem.memoirServices === 'No' ? "❌ No" : "⚠️ Partial"}
+                      <td className="py-2 px-3 flex gap-2 items-center">
+                        {featureItem.memoirServices === 'Yes' && <GiCheckMark />}
+                        {featureItem.memoirServices === 'No' && <MdClose />}
+                        {featureItem.memoirServices === 'Partial' && <CgDanger />}
+                        {featureItem.memoirServices === 'Yes' ? "Yes" : featureItem.memoirServices === 'No' ? "No" : "Partial"}
                       </td>
                     </tr>
                   </tbody>
@@ -165,19 +182,33 @@ const Analysis = () => {
                       {featureItem.feature}
                     </th>
                     <td className="py-5 px-3">
-                      {featureItem.everJournal === 'Yes' ? "✅ Yes" : "❌ No"}
+                      {featureItem.everJournal === 'Yes' && <GiCheckMark className="inline pr-1 w-5 h-5" />}
+                      {featureItem.everJournal === 'No' && <MdClose className="inline pr-1 w-5 h-5" />}
+                      {featureItem.everJournal === 'Yes' ? "Yes" : "No"}
                     </td>
                     <td className="py-5 px-3">
-                      {featureItem.dayOne === 'Yes' ? "✅ Yes" : featureItem.dayOne === 'No' ? "❌ No" : "⚠️ Partial"}
+                      {featureItem.dayOne === 'Yes' && <GiCheckMark className="inline pr-1 w-5 h-5" />}
+                      {featureItem.dayOne === 'No' && <MdClose className="inline pr-1 w-5 h-5" />}
+                      {featureItem.dayOne === 'Partial' && <CgDanger className="inline pr-1 w-5 h-5" />}
+                      {featureItem.dayOne === 'Yes' ? "Yes" : featureItem.dayOne === 'No' ? "No" : "Partial"}
                     </td>
                     <td className="py-5 px-3">
-                      {featureItem.notion === 'Yes' ? "✅ Yes" : featureItem.notion === 'No' ? "❌ No" :  + "⚠️ Partial"}
+                      {featureItem.notion === 'Yes' && <GiCheckMark className="inline pr-1 w-5 h-5" />}
+                      {featureItem.notion === 'No' && <MdClose className="inline pr-1 w-5 h-5" />}
+                      {featureItem.notion === 'Partial' && <CgDanger className="inline pr-1 w-5 h-5" />}
+                      {featureItem.notion === 'Yes' ? "Yes" : featureItem.notion === 'No' ? "No" :  + "Partial"}
                     </td>
                     <td className="py-5 px-3">
-                      {featureItem.chatGPT === 'Yes' ? "✅ Yes" : featureItem.chatGPT === 'No' ? "❌ No" : "⚠️ Partial"}
+                      {featureItem.chatGPT === 'Yes' && <GiCheckMark className="inline pr-1 w-5 h-5" />}
+                      {featureItem.chatGPT === 'No' && <MdClose className="inline pr-1 w-5 h-5" />}
+                      {featureItem.chatGPT === 'Partial' && <CgDanger className="inline pr-1 w-5 h-5" />}
+                      {featureItem.chatGPT === 'Yes' ? "Yes" : featureItem.chatGPT === 'No' ? "No" : "Partial"}
                     </td>
                     <td className="py-5 px-3">
-                      {featureItem.memoirServices === 'Yes' ? "✅ Yes" : featureItem.memoirServices === 'No' ? "❌ No" : "⚠️ Partial"}
+                      {featureItem.memoirServices === 'Yes' && <GiCheckMark className="inline pr-1 w-5 h-5" />}
+                      {featureItem.memoirServices === 'No' && <MdClose className="inline pr-1 w-5 h-5" />}
+                      {featureItem.memoirServices === 'Partial' && <CgDanger className="inline pr-1 w-5 h-5" />}
+                      {featureItem.memoirServices === 'Yes' ? "Yes" : featureItem.memoirServices === 'No' ? "No" : "Partial"}
                     </td>
                   </tr>
                 ))}

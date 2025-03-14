@@ -46,7 +46,7 @@ const HowItWorks = () => {
                 your life story into a beautifully structured biography.
               </motion.p>
             </article>
-            <Image src="/mockups/workImg.webp" alt="Ever Journal Mockup" className="w-full lg:hidden" width={500} height={400} />
+            <Image src="/mockups/workImg.webp" alt="Ever Journal Mockup" className="w-full mb-6 lg:hidden" width={500} height={400} />
           </div>
           <motion.div
             initial={{ opacity: 0, y: 50 }}
