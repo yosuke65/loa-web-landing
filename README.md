@@ -1,33 +1,156 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 📗 Table of Contents
 
-## Getting Started
+- [📖 Ever Journal](#about-project)
+  - [🛠 Built With](#built-with)
+    - [Tech Stack](#tech-stack)
+    - [Key Features](#key-features)
+  - [🚀 Live Demo](#live-demo) (If Available)
+- [💻 Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Setup](#setup)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Deployment](#deployment)
+  - [Firebase Configuration](#firebase-configuration)
+    - [Important Security Notes](#important-security-notes)
+- [👥 Author](#authors)
+- [🔭 Future Features](#future-features)
+- [🙏 Acknowledgements](#acknowledgements)
 
-First, run the development server:
+# 📖 Ever Journal <a name="about-project"></a>
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+**Ever Journal** is an AI-powered journaling and biography app that helps users reflect on their lives, capture memories, and create structured biographies. This project uses Firebase for data storage (waitlist sign-ups and contact form submissions) and provides a user-friendly interface for interacting with these features.
+
+## 🛠 Built With <a name="built-with"></a>
+
+### Tech Stack <a name="tech-stack"></a>
+
+<details>
+  <summary>Client (Frontend)</summary>
+  <ul>
+    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https://nextjs.org/">Next.js</a></li>
+    <li><a href="https://tailwindcss.com/">Tailwind CSS</a></li>
+    <li><a href="https://formik.org/">Formik</a></li>
+    <li><a href="https://github.com/jquense/yup">Yup</a></li>
+    <li><a href="https://www.npmjs.com/package/react-phone-number-input">react-phone-number-input</a></li>
+    <li><a href="https://framer.com/motion">Framer Motion</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary>Backend and Data Storage</summary>
+  <ul>
+    <li><a href="https://firebase.google.com/">Firebase</a>
+      <ul>
+        <li>Firestore Database</li>
+      </ul>
+    </li>
+  </ul>
+</details>
+
+### Key Features <a name="key-features"></a>
+
+- **Waitlist Sign-up:** Users can join a waitlist by providing their email address.
+- **Contact Form:** A form for users to submit inquiries, support requests, or business proposals.
+- **Firebase Integration:** Utilizes Firebase Firestore to store waitlist and contact form data.
+- **Responsive Design:** Adapts seamlessly to different screen sizes (mobile, tablet, desktop).
+- **Typewriter Animation:** Dynamic header with typewriter animation to get user attention
+- **Custom Variables:** Fonts sizes or types, colours can be modified easily from the `tailwindcss.config.mjs`
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 🚀 Live Demo <a name="live-demo"></a>
+
+(If a live demo is available, replace this with the actual link)
+
+- [Live Demo Link](Replace With Your Live Demo Link)
+
+(Include a screenshot or GIF of the app in action)
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## 💻 Getting Started <a name="getting-started"></a>
+
+To get a local copy up and running, follow these steps.
+
+### Prerequisites
+
+In order to run this project you need:
+
+- Node.js (version 18 or higher recommended)
+- npm or yarn
+
+### Setup
+
+Clone this repository to your desired folder:
+
+```sh
+  cd your-directory
+  git clone https://github.com/AbayomiOlaoye/ever-journal.git
+  cd ever-journal
+  npm install # or yarn install
+```
+
+### Usage
+
+To run the project, execute the following command:
+
+#### Firebase Configuration <a name="firebase-configuration"></a>
+- Firebase Project Setup:
+
+- [] Ensure you have a Firebase project set up in the Firebase Console (https://console.firebase.google.com/).
+- [] Enable Firestore Database in your Firebase project.
+
+- Obtain Firebase Configuration:
+
+- [] Go to "Project settings" (the gear icon next to "Project Overview") in the Firebase Console.
+
+- [] Scroll down to the "Your apps" section and select the web app (</> icon).
+
+- [] Copy the Firebase configuration object (the firebaseConfig object).
+
+- Create .env.local File:
+
+In the root directory of your Next.js project, create a file named .env.local.
+
+- [] Add the following environment variables to the .env.local file, replacing the placeholders with your actual Firebase configuration values:
+
+```sh
+NEXT_PUBLIC_FIREBASE_API_KEY=YOUR_API_KEY
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=YOUR_PROJECT_ID.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=YOUR_PROJECT_ID
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=YOUR_PROJECT_ID.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=YOUR_MESSAGING_SENDER_ID
+NEXT_PUBLIC_FIREBASE_APP_ID=YOUR_APP_ID
+```
+
+Firebase Security Rules: Configure your Firebase Security Rules in the Firebase Console to protect your data from unauthorized access. The following are to be implemented
+
+```sh
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /leads/{document} {
+      allow read, write: if request.auth != null;
+    }
+    match /contacts/{document} {
+      allow read, write: if request.auth != null;
+    }
+  }
+}
+```
+
+#### Run the project
+
+```sh
+  npm run dev  # or yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
 ## Deploy on Vercel
 
