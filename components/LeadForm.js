@@ -1,7 +1,5 @@
 'use client';
 
-import { db } from '@/utils/firebase';
-import { addDoc, collection } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MdCancel } from 'react-icons/md';
@@ -9,6 +7,8 @@ import { useFormik } from 'formik';
 import { InfinitySpin } from 'react-loader-spinner';
 import * as Yup from 'yup';
 import Success from '@/components/Success';
+import { db } from '@/utils/firebase';
+import { addDoc, collection } from 'firebase/firestore';
 
 const errorVariants = {
   hidden: { opacity: 0, y: -10 },
@@ -30,8 +30,8 @@ function LeadForm({ handleClose }) {
     },
     validationSchema,
     onSubmit: async (values) => {
+      setIsLoading(true);
       try {
-        setIsLoading(true);
         const leadsCollectionRef = collection(db, "waitlist");
         
         await addDoc(leadsCollectionRef, {
