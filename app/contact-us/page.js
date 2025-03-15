@@ -40,6 +40,7 @@ const Contact = () => {
       comment: Yup.string().max(500, 'Comment must be at most 500 characters'),
     }),
     onSubmit: async (values) => {
+      setIsLoading(true);
       try {
         const contactsCollectionRef = collection(db, "contacts");
         await addDoc(contactsCollectionRef, {
@@ -55,22 +56,33 @@ const Contact = () => {
           },
           timestamp: new Date()
         });
-      setIsLoading(true);
       setIsLoading(false);
       setShowTray(true);
       formik.resetForm();
       }
       catch (error) {
         console.error("Error adding document: ", error);
+        setIsLoading(false);
+      } finally {
+        setIsLoading(false);
       }
     },
   });
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      formik.setErrors({});
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [formik.errors]);
 
   if (isLoading) {
     return (
       <motion.section
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+        onClick={() => setIsLoading(false)}
         className="min-h-screen flex w-full z-[100] items-center justify-center fixed top-0 left-0 bg-opacity-85 bg-primary"
       >
         <InfinitySpin visible width="200" color="#505050" ariaLabel="infinity-spin-loading" />
@@ -147,7 +159,7 @@ const Contact = () => {
                   placeholder="Enter phone number"
                   value={formik.values.phone}
                   onChange={(phone) => formik.setFieldValue('phone', phone)}
-                  onBlur={formik.handleBlur}
+                  onBlur={() => formik.setFieldTouched('phone', true)}
                   defaultCountry="us"
                   name="phone"
                   international

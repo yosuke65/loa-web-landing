@@ -12,6 +12,7 @@
     "@floating-ui/utils": "^0.2.9",
     "@headlessui/react": "^2.2.0",
     "autoprefixer": "^10.4.20",
+    "dotenv": "^16.4.7",
     "embla-carousel-autoplay": "^8.5.1",
     "embla-carousel-react": "^8.5.1",
     "firebase": "^11.4.0",
