@@ -1,13 +1,21 @@
-'use client'
+'use client';
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { useFormik } from 'formik';
+import Image from 'next/image';
 import * as Yup from 'yup';
 import { PhoneInput } from 'react-international-phone';
 import 'react-international-phone/style.css';
+import { InfinitySpin } from 'react-loader-spinner';
+import { MdCancel } from 'react-icons/md';
+import { db } from "@/utils/firebase";
+import { addDoc, collection } from "firebase/firestore";
 
 const Contact = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [showTray, setShowTray] = useState(false);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -31,10 +39,44 @@ const Contact = () => {
       phone: Yup.string().required('Phone Number is required'),
       comment: Yup.string().max(500, 'Comment must be at most 500 characters'),
     }),
-    onSubmit: (values) => {
-      console.log(values);
+    onSubmit: async (values) => {
+      try {
+        const contactsCollectionRef = collection(db, "contacts");
+        await addDoc(contactsCollectionRef, {
+          name: values.name,
+          email: values.email,
+          phone: values.phone,
+          comment: values.comment,
+          areaOfInterest: {
+            everJournalUsage: values.areaOfInterest.everJournalUsage,
+            adsSponsorship: values.areaOfInterest.adsSponsorship,
+            partnership: values.areaOfInterest.partnership,
+            others: values.areaOfInterest.others,
+          },
+          timestamp: new Date()
+        });
+      setIsLoading(true);
+      setIsLoading(false);
+      setShowTray(true);
+      formik.resetForm();
+      }
+      catch (error) {
+        console.error("Error adding document: ", error);
+      }
     },
   });
+
+  if (isLoading) {
+    return (
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="min-h-screen flex w-full z-[100] items-center justify-center fixed top-0 left-0 bg-opacity-85 bg-primary"
+      >
+        <InfinitySpin visible width="200" color="#505050" ariaLabel="infinity-spin-loading" />
+      </motion.section>
+    )
+  }
 
   return (
     <motion.section
@@ -51,7 +93,13 @@ const Contact = () => {
           Fill the form below and we will be in touch.
         </p>
 
-        <form onSubmit={formik.handleSubmit} className="max-w-[500px] mx-auto flex flex-col justify-center">
+        <motion.form
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          onSubmit={formik.handleSubmit}
+          className="max-w-[500px] mx-auto flex flex-col justify-center"
+        >
           <div className="mb-4">
             <label htmlFor="name" className="block text-sm font-bold mb-2">
               Name:
@@ -99,8 +147,7 @@ const Contact = () => {
                   placeholder="Enter phone number"
                   value={formik.values.phone}
                   onChange={(phone) => formik.setFieldValue('phone', phone)}
-                  onBlur={() => formik.setFieldTouched('phone', true)}
-                  className=""
+                  onBlur={formik.handleBlur}
                   defaultCountry="us"
                   name="phone"
                   international
@@ -116,7 +163,6 @@ const Contact = () => {
               Comment:
             </label>
             <textarea
-              id="comment"
               name="comment"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
@@ -186,7 +232,7 @@ const Contact = () => {
           >
             Submit
           </button>
-        </form>
+        </motion.form>
 
         <p className="mt-7 text-gray-600 text-center">Prefer email?
           <a href="mailto:hawk006@gmail.com" className="text-black pl-1 hover:underline font-bold">
@@ -194,6 +240,24 @@ const Contact = () => {
           </a>
         </p>
       </div>
+      {showTray && (
+        <motion.section
+          initial={{ opacity: 0, x: "-100%" }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          onClick={() => setShowTray(false)}
+          className="fixed top-0 left-0 z-[500000] w-full h-full bg-black bg-opacity-85 flex items-center justify-center cursor-pointer"
+        >
+          <MdCancel className="absolute left-5 top-10 lg:top-14 lg:left-14 text-2xl cursor-pointer text-white" onClick={() => setShowTray(false)} />
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="text-center bg-primary rounded-[20px] p-4 lg:p-16 py-12 flex flex-col items-center justify-center gap-8"
+          >
+            <Image src="/success.gif" alt="Success" className="w-[40%]" width={100} height={100} />
+            <p className="text-xl text-white font-semibold">We got your message! See you soon.</p>
+          </div>
+        </motion.section>
+      )}
     </motion.section>
   )
 }

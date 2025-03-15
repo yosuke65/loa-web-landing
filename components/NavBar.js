@@ -70,7 +70,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <motion.article
-        className={`md:hidden ${isOpen ? 'fixed inset-0 min-h-[100vh] top-[80px] transform translate-y-0 transition-transform duration-300 w-full bg-bg' : 'fixed inset- transform -translate-y-full transition-transform duration-300'}`}
+        className={`md:hidden ${isOpen ? 'fixed block inset-0 min-h-[100vh] top-[80px] transform translate-y-0 transition-transform duration-300 w-full bg-bg' : 'fixed hidden inset-0 transform -translate-y-full transition-transform duration-300'}`}
         initial={{ opacity: 0, y: -10 }}
         animate={{ opacity: isOpen ? 1 : 0, y: isOpen ? 0 : -10 }}
         transition={{ duration: 0.3 }}

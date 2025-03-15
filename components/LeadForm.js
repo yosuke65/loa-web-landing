@@ -1,11 +1,12 @@
 'use client';
 
+import { db } from '@/utils/firebase';
+import { addDoc, collection } from 'firebase/firestore';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MdCancel } from 'react-icons/md';
 import { useFormik } from 'formik';
 import { InfinitySpin } from 'react-loader-spinner';
-// import { useForm } from '@formspree/react';
 import * as Yup from 'yup';
 import Success from '@/components/Success';
 
@@ -31,25 +32,18 @@ function LeadForm({ handleClose }) {
     onSubmit: async (values) => {
       try {
         setIsLoading(true);
-        await new Promise(resolve => setTimeout(resolve, 1000));
-        console.log('Submitting data:', { email: values.email });
-  
-        // **Replace this with your actual lead submission logic (e.g., API call)**
-        // Example using fetch:
-        // const response = await fetch('/api/leads', {
-        //   method: 'POST',
-        //   headers: { 'Content-Type': 'application/json' },
-        //   body: JSON.stringify({ firstName, email }),
-        // });
-        // if (!response.ok) {
-        //   throw new Error('Failed to submit lead');
-        // }
+        const leadsCollectionRef = collection(db, "waitlist");
+        
+        await addDoc(leadsCollectionRef, {
+          email: values.email,
+          timestamp: new Date(),
+        });
+
         setSuccess(true);
         setIsLoading(false);
 
         formik.resetForm();
       } catch (err) {
-        console.log('Form submission error:', err);
         setIsLoading(false);
       } finally {
         setIsLoading(false);
