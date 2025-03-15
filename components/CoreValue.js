@@ -1,6 +1,5 @@
 'use client'
 import { motion } from "framer-motion";
-import Image from "next/image";
 
 const values = [
   {
@@ -54,18 +53,18 @@ const Values = () => {
             </p>
           </article>
         </div>
-        <div className="mt-16 lg:mt-26 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="mt-16 lg:mt-26 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16">
           {values.map((paragraph) => (
             <motion.article
               key={paragraph.id}
               initial={{ opacity: 0, y: 100, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1, transition: { duration: 0.5 } }}
               viewport={{ once: true }}
-              className="mt-2 border drop-shadow-xl bg-bg text-white lg:drop-shadow-none items-center flex flex-col gap-4 p-4 py-10 rounded-lg"
+              className="mt-2 border relative drop-shadow-xl bg-bg text-white lg:drop-shadow-none lg:items-start items-center flex flex-col gap-4 p-4 md:p-6 py-10 rounded-lg"
             >
-              <Image src={paragraph.img} alt={paragraph.title} className="w-[10%] md:w-[15%]" width={500} height={200} />
-              <h4 className="text-[18px] font-bold mt-5 text-center">{paragraph.title}</h4>
-              <p className="mt-2 text-center">{paragraph.desc}</p>
+              <h3 className="text-h3 absolute lg:static top-[-40px] border-2 lg:border-none text-[#505050] lg:text-white lg:bg-black left-[40%] bg-white rounded-full p-4 w-[70px] h-[70px] flex items-center justify-center font-bold">{paragraph.id}</h3>
+              <h4 className="text-[18px] font-bold lg:mt-0 lg:text-left mt-5 text-center">{paragraph.title}</h4>
+              <p className="mt-2 text-center lg:text-left">{paragraph.desc}</p>
             </motion.article>
           ))}
         </div>

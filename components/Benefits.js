@@ -69,7 +69,7 @@ const Benefits = () => {
               initial={{ opacity: 0, y: 100 }}
               whileInView={{ opacity: 1, y: 0, transition: { duration: 0.5 } }}
               viewport={{ once: true }}
-              className="mt-2 border drop-shadow-xl lg:drop-shadow-none relative lg:items-start items-center flex flex-col gap-4 p-4 lg:p-10 py-10 rounded-lg"
+              className="mt-2 border drop-shadow-xl lg:drop-shadow-none relative lg:items-start items-center flex flex-col gap-4 p-4 md:p-6 lg:p-10 py-10 rounded-lg"
             >
               <h3 className="text-h3 absolute lg:static top-[-40px] border-2 lg:border-none text-[#505050] left-[40%] bg-white rounded-full p-4 w-[70px] h-[70px] flex items-center justify-center font-bold">{paragraph.id}</h3>
               <h4 className="text-h5 font-bold mt-5 lg:mt-0 lg:text-left text-center">{paragraph.title}</h4>
