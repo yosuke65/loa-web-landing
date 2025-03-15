@@ -1,65 +1,33 @@
-"use client";
+'use client'
 
-import "../globals.css";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Button from "@/components/Button";
-import Testimonial from "@/components/Testimonial";
-import Faqs from "@/components/Faqs";
-import Feature from "@/components/Features";
-import Analysis from "@/components/Compare";
-import Ready from "@/components/Ready";
-import Benefits from "@/components/Benefits";
 
-export default function Updates() {
-
+const Updates = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
   return (
-    <>
-      <motion.article
-        initial={{ opacity: 0, y: 50 }}
-        whileInView={{ opacity: 1, y: 0, transition: { duration: 0.8 } }}
-        viewport={{ once: true }}
-        className="pt-28 lg:pt-64 lg:pb-32 flex bg-primary flex-col items-center justify-items-center overflow-x-hidden"
-      >
-        <section className="w-full container px-5 md:px-[5%] 2xl:px-0 max-w-[1200px] mx-auto flex flex-col lg:flex-row-reverse items-center lg:items-start justify-center lg:gap-5 gap-8">
-          <article className="py-4 mx-auto lg:mx-0 lg:relative lg:left-[-100px] w-full flex flex-col gap-5 items-start justify-center">
-            <motion.h1
-              initial={{ opacity: 0, x: 100 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.5, duration: 0.5 }}
-              className="text-white text-h2 md:max-w-[70%] lg:max-w-[100%] lg:text-h4 font-bold text-left"
-            >
-              Constant Updates to Keep Your Journaling Experience Fresh
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, scale: 1.25 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.8, duration: 0.5 }}
-              className="text-white max-w-[85%] md:max-w-[70%] lg:max-w-[100%] md:leading-8 text-left"
-            >
-              Ever Journal combines AI-powered technology with a user-friendly interface to make journaling effortless, insightful, and deeply personal.
-            </motion.p>
-
-            <Button text="Join the Waitlist" />
-          </article>
-          <motion.article
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1, transition: { duration: 0.5 } }}
-            className="flex py-4 mx-auto items-center w-full justify-center"
-          >
-            <Image src="/features/featuresMob.svg" alt="Ever Journal Mockup" className="max-w-[100%] mt-[-80px] md:hidden" width={500} height={200} />
-            <Image src="/features/features.svg" alt="Ever Journal Mockup" className="w-full hidden mt-[-80px] md:block" width={200} height={400} />
-          </motion.article>
-        </section>
-      </motion.article>
-      <Benefits />
-      <Analysis />
-      <Ready />
-    </>
-  );
+    <motion.section
+      initial={{ opacity: 0, x: '-100%' }}
+      animate={{ opacity: 1, x: 0 }}
+      exit={{ opacity: 0, x: '100%' }}
+      transition={{ delay: 0.5 }}
+      className="min-h-screen ex-col justify-center"
+    >
+      <h2 className="text-h2 bg-bg pt-36 pb-20 lg:text-h3 text-white w-full text-center mb-14">What&apos;s New</h2>
+      <div className="mx-auto px-5 md:px-[5%] 2xl:px-0 pb-20 container max-w-[1200px]">
+        <article className="flex items-center justify-center flex-col gap-12">
+          <h3 className="font-extrabold text-h3">Join the Waitlist</h3>
+          <Button text="Be the first to know" />
+          <Image src="/mockups/update.svg" alt="About Ever Journal" className="w-[90%]" width={300} height={300} />
+        </article>
+      </div>
+    </motion.section>
+  )
 }
+
+export default Updates;
