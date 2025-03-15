@@ -4,7 +4,7 @@
   - [🛠 Built With](#built-with)
     - [Tech Stack](#tech-stack)
     - [Key Features](#key-features)
-  - [🚀 Live Demo](#live-demo) (If Available)
+  - [🚀 Live Demo](#live-demo)
 - [💻 Getting Started](#getting-started)
   - [Prerequisites](#prerequisites)
   - [Setup](#setup)
@@ -62,11 +62,8 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-(If a live demo is available, replace this with the actual link)
+- [Live Demo Link](https://ever-journal.vercel.app/)
 
-- [Live Demo Link](Replace With Your Live Demo Link)
-
-(Include a screenshot or GIF of the app in action)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -87,7 +84,7 @@ Clone this repository to your desired folder:
 
 ```sh
   cd your-directory
-  git clone https://github.com/AbayomiOlaoye/ever-journal.git
+  git clone https://github.com/ever-journal/ever-journal-web.git
   cd ever-journal
   npm install # or yarn install
 ```
