@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 w-full min-h-[80px] z-50 bg-bg"
+      className="fixed top-0 left-0 w-full min-h-[80px] z-50 bg-primary"
       variants={navbarVariants}
       initial="hidden"
       animate="visible"
