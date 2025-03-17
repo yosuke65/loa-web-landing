@@ -10,19 +10,6 @@ const TypewriterHeader = ({ text }) => {
   }, []);
   return (
     <article className="relative flex items-center justify-center w-full md:mt-14">
-      <span className="absolute mx-auto top-0 text-h1 py-4 flex items-center border w-fit bg-gradient-to-r blur-xl from-[#505050] via-white to-[#f2f2f2] bg-clip-text text-2xl leading-[60px] lg:leading-[100px] max-w-[80%] lg:max-w-[90%] box-content font-extrabold text-transparent text-center select-none">
-        <ReactTyped
-          strings={[
-            "Rediscover Your Life’s Purpose",
-            "Create Your Legacy & Share It",
-            "Reconnect with the True Self",
-            `${text}`
-          ]}
-          typeSpeed={80}
-          backSpeed={50}
-          backDelay={500}
-        />
-      </span>
       <motion.h1
         initial={{ opacity: 0 }}
         animate={{ opacity: 1, transition: { duration: 0.5 } }}
